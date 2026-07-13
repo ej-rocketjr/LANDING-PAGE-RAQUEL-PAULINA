@@ -1,26 +1,39 @@
 @import "tailwindcss";
 
+@theme {
+  /* Brand palette (from Figma) */
+  --color-ink: #222222;
+  --color-ink-card: #222222;
+  --color-gold: #c9a84c;
+  --color-gold-muted: #c8a96e;
+  --color-green: #81c86e;
+  --color-green-ink: #231010;
+  --color-cream: #f5f0e8;
+  --color-heading: #1a1408;
+  --color-body-muted: #6b6050;
+  --color-panel: #f3f3f3;
+
+  /* Fonts (bound to next/font variables in layout.tsx) */
+  --font-display: var(--font-playfair);
+  --font-sans: var(--font-space-grotesk);
+  --font-body: var(--font-inter);
+  --font-mono: var(--font-dm-mono);
+}
+
 :root {
   --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --foreground: #1a1408;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body), Arial, Helvetica, sans-serif;
+}
+
+/* Smooth scroll for in-page anchor navigation.
+   scroll-padding-top offsets the sticky header so sections aren't hidden under it. */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
 }
