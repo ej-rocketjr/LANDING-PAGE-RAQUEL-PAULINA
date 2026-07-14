@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const areas = [
   "Aposentadorias",
   "Benefícios por Incapacidade",
@@ -17,19 +19,18 @@ const offices = [
 
 export default function SiteFooter() {
   return (
-    <footer className="bg-ink pb-8 pt-8 text-white">
+    <footer className="bg-ink pb-8 pt-8 text-white flex flex-col">
       <div className="mx-auto max-w-[1152px] px-6">
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
           <div className="max-w-[336px]">
-            <p className="font-display text-3xl text-cream">Raquel Paulina</p>
-            <p className="mt-1 font-mono text-[10px] uppercase tracking-[0.1em] text-gold-muted">
-              Advocacia Previdenciária
-            </p>
-            <p className="mt-4 font-sans text-sm leading-relaxed text-white">
-              OAB/CE 00.000 — Especialista em Direito Previdenciário com mais de
-              10 anos de atuação.
-            </p>
+          <Image
+            src="/assets/logo.svg"
+            alt="Raquel Paulina — Advocacia Previdenciária"
+            width={66}
+            height={42}
+            className="h-25 w-auto"
+          />
           </div>
 
           {/* Áreas */}
@@ -54,20 +55,24 @@ export default function SiteFooter() {
             <ul className="mt-5 flex flex-col gap-4">
               {phones.map((p) => (
                 <li key={p} className="flex items-center gap-2">
-                  <img
+                  <Image
                     src="/assets/footerPhone.svg"
                     alt=""
                     aria-hidden
+                    width={15}
+                    height={15}
                     className="size-[15px]"
                   />
                   <span className="font-sans text-xs text-white">{p}</span>
                 </li>
               ))}
               <li className="flex items-center gap-2">
-                <img
+                <Image
                   src="/assets/footerMail.svg"
                   alt=""
                   aria-hidden
+                  width={15}
+                  height={15}
                   className="size-[15px]"
                 />
                 <a
@@ -82,10 +87,12 @@ export default function SiteFooter() {
 
           {/* Escritórios */}
           <div className="flex gap-3">
-            <img
+            <Image
               src="/assets/footerLoc.svg"
               alt=""
               aria-hidden
+              width={15}
+              height={15}
               className="mt-1 size-[15px] shrink-0"
             />
             <div>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { WHATSAPP_URL } from "./constants";
 
 const links = [
@@ -13,12 +14,12 @@ const links = [
 
 function Logo() {
   return (
-    <img
+    <Image
       src="/assets/logo.svg"
       alt="Raquel Paulina — Advocacia Previdenciária"
       width={66}
       height={42}
-      className="h-10 w-auto"
+      className="h-25 w-auto"
     />
   );
 }
@@ -38,7 +39,14 @@ function WhatsAppButton({
       onClick={onClick}
       className={`inline-flex items-center justify-center gap-2 rounded-[4px] bg-green px-4 py-2 font-body text-sm text-heading transition-transform hover:-translate-y-0.5 ${className}`}
     >
-      <img src="/assets/imgIcon.svg" alt="" aria-hidden className="size-[15px]" />
+      <Image
+        src="/assets/imgIcon.svg"
+        alt=""
+        aria-hidden
+        width={15}
+        height={15}
+        className="size-[15px]"
+      />
       WhatsApp
     </a>
   );
@@ -49,7 +57,7 @@ export default function Header() {
   const close = () => setOpen(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-ink">
+    <header className="sticky top-0 z-50 bg-ink border-b border-white/10">
       <div className="mx-auto flex max-w-[1152px] items-center justify-between px-6 py-4">
         {/* Brand */}
         <a href="#inicio" onClick={close} aria-label="Início">

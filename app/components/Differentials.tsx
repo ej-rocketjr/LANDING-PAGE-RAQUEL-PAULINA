@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const items = [
   {
     icon: "/assets/imgIcon1.svg",
@@ -33,7 +35,14 @@ export default function Differentials() {
           {items.map((item) => (
             <div key={item.title} className="flex flex-col items-start p-8">
               <div className="flex size-10 items-center justify-center rounded-[4px] bg-gold">
-                <img src={item.icon} alt="" aria-hidden className="size-6" />
+                <Image
+                  src={item.icon}
+                  alt=""
+                  aria-hidden
+                  width={24}
+                  height={24}
+                  className="size-6"
+                />
               </div>
               <h3 className="mt-5 font-sans text-xl font-bold text-heading">
                 {item.title}

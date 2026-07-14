@@ -11,13 +11,14 @@ export default function About() {
     <section id="sobre" className="bg-ink py-24 text-white">
       <div className="mx-auto grid max-w-[1152px] items-center gap-12 px-6 lg:grid-cols-2 lg:gap-16">
         {/* Photo */}
-        <div className="relative mx-auto aspect-square w-full max-w-[448px] overflow-hidden rounded-[19px]">
+        <div className="relative mx-auto aspect-square w-full max-w-[458px] overflow-hidden rounded-[10px]">
           <Image
             src="/assets/imgContainer.png"
             alt="Raquel Paulina, advogada previdenciária"
-            fill
-            sizes="(max-width: 1024px) 90vw, 448px"
-            className="object-cover"
+            width={434}
+            height={543}
+            sizes="(max-width: 1024px) 90vw, 600px"
+            className="block h-full w-full object-cover object-top"
           />
         </div>
 

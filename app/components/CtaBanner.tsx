@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { WHATSAPP_URL } from "./constants";
 
 const points = [
@@ -31,10 +32,12 @@ export default function CtaBanner() {
           rel="noopener noreferrer"
           className="mt-10 inline-flex h-15 items-center gap-2 rounded-2xl bg-green px-8 py-4 font-sans text-lg uppercase text-green-ink shadow-[0px_4px_3px_rgba(0,0,0,0.1),0px_2px_2px_rgba(0,0,0,0.1)] transition-transform hover:-translate-y-0.5"
         >
-          <img
+          <Image
             src="/assets/imgIcon4.svg"
             alt=""
             aria-hidden
+            width={20}
+            height={20}
             className="size-5"
           />
           Conversar pelo WhatsApp

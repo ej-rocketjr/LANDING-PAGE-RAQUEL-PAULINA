@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { WHATSAPP_URL } from "./constants";
 
 const faqs = [
@@ -42,10 +43,12 @@ export default function Faq() {
             rel="noopener noreferrer"
             className="mt-8 hidden h-15 w-fit items-center gap-2 rounded-2xl bg-green px-8 py-4 font-sans text-lg uppercase text-green-ink shadow-[0px_4px_3px_rgba(0,0,0,0.1),0px_2px_2px_rgba(0,0,0,0.1)] transition-transform hover:-translate-y-0.5 lg:inline-flex"
           >
-            <img
+            <Image
               src="/assets/imgIcon4.svg"
               alt=""
               aria-hidden
+              width={20}
+              height={20}
               className="size-5"
             />
             tirar minha dúvida
@@ -61,10 +64,12 @@ export default function Faq() {
             >
               <summary className="flex cursor-pointer list-none items-center justify-between py-5 font-body text-base font-medium text-heading marker:hidden">
                 {f.q}
-                <img
+                <Image
                   src="/assets/imgIcon5.svg"
                   alt=""
                   aria-hidden
+                  width={18}
+                  height={18}
                   className="size-[18px] shrink-0 transition-transform duration-200 group-open:rotate-180"
                 />
               </summary>
@@ -80,10 +85,12 @@ export default function Faq() {
             rel="noopener noreferrer"
             className="mt-8 inline-flex h-15 w-fit items-center gap-2 rounded-2xl bg-green px-8 py-4 font-sans text-lg uppercase text-green-ink shadow-[0px_4px_3px_rgba(0,0,0,0.1),0px_2px_2px_rgba(0,0,0,0.1)] transition-transform hover:-translate-y-0.5 lg:hidden"
           >
-            <img
+            <Image
               src="/assets/imgIcon4.svg"
               alt=""
               aria-hidden
+              width={20}
+              height={20}
               className="size-5"
             />
             tirar minha dúvida
