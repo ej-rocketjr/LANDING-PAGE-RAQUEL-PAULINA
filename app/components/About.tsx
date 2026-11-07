@@ -1,50 +1,40 @@
 import Image from "next/image";
 
-const highlights = [
-  "Análise criteriosa de cada caso para a melhor estratégia",
-  "Atendimento personalizado com foco total no cliente",
-  "Honorários de êxito — você só paga se ganhar",
-];
-
 export default function About() {
   return (
-    <section id="sobre" className="bg-ink py-24 text-white">
-      <div className="mx-auto grid max-w-[1152px] items-center gap-12 px-6 lg:grid-cols-2 lg:gap-16">
-        {/* Photo */}
-        <div className="relative mx-auto aspect-square w-full max-w-[458px] overflow-hidden rounded-[10px]">
-          <Image
-            src="/assets/imgContainer.png"
-            alt="Raquel Paulina, advogada previdenciária"
-            width={434}
-            height={543}
-            sizes="(max-width: 1024px) 90vw, 600px"
-            className="block h-full w-full object-cover object-top"
-          />
-        </div>
-
-        {/* Text */}
-        <div className="max-w-xl">
-          <h2 className="font-display text-5xl text-gold">Raquel Paulina</h2>
-
-          <span className="mt-4 inline-flex items-center rounded-[19px] bg-white/10 px-3.5 py-1.5 font-sans text-[10px] uppercase tracking-[0.18em] text-white">
-            oab/al 00.000
-          </span>
-
-          <p className="mt-5 font-body text-base leading-relaxed text-cream/70">
+    <section className="about" id="sobre">
+      <div className="wrap">
+        <div className="acopy">
+          <span className="eyebrow">Sobre nós</span>
+          <h2>Especialista em Direito Previdenciário junto ao INSS e ao RPPS</h2>
+          <p>
             Advogada especializada em Direito Previdenciário com mais de 10 anos
             de experiência em casos complexos junto ao INSS e ao RPPS. Formada em
             Direito com pós-graduação em Direito Previdenciário.
           </p>
-
-          <ul className="mt-8 flex flex-col gap-4">
-            {highlights.map((item) => (
-              <li key={item} className="flex items-start gap-3">
-                <span className="mt-2 size-1.5 shrink-0 rounded-full bg-gold-muted" />
-                <span className="font-body text-sm text-cream/80">{item}</span>
-              </li>
-            ))}
-          </ul>
+          <p>
+            Cada caso recebe uma análise criteriosa para a melhor estratégia, com
+            atendimento personalizado e foco total no cliente. Trabalhamos com
+            honorários de êxito: você só paga se ganhar.{" "}
+            <b>Mais que advocacia, compromisso em cada detalhe.</b>
+          </p>
+          <div className="resp">
+            <span>ADVOGADA RESPONSÁVEL</span>
+            <b>DRA. RAQUEL PAULINA</b>
+          </div>
         </div>
+        <div className="aphoto">
+          <Image
+            src="/assets/imgContainer.png"
+            alt="Dra. Raquel Paulina"
+            width={434}
+            height={543}
+            sizes="(max-width: 820px) 90vw, 340px"
+          />
+        </div>
+      </div>
+      <div className="seal">
+        <Image src="/assets/Logotipo-rp.svg" alt="" width={88} height={88} />
       </div>
     </section>
   );

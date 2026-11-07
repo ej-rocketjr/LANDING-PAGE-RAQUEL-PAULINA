@@ -1,4 +1,37 @@
-// Central place for the WhatsApp contact link used across CTAs.
-// Number taken from the footer contact block: (79) 9604-4009.
-export const WHATSAPP_URL =
-  "https://wa.me/5579960440009?text=Ol%C3%A1%2C%20gostaria%20de%20uma%20an%C3%A1lise%20do%20meu%20caso%20previdenci%C3%A1rio.";
+// Dados de contato centralizados: altere aqui e o site inteiro acompanha.
+
+const WA_MESSAGE = encodeURIComponent(
+  "Olá Dra. Raquel Paulina!\nGostaria de Agendar um Atendimento",
+);
+
+// WhatsApp do escritório de Penedo, usado em todos os botões de agendamento.
+export const WHATSAPP_URL = `https://wa.me/5582991332000?text=${WA_MESSAGE}`;
+
+export const OAB = "OAB/SE 11.080";
+export const EMAIL = "raquelpaulinaadv@gmail.com";
+export const INSTAGRAM = {
+  handle: "@raquelpaulina.adv",
+  url: "https://www.instagram.com/raquelpaulina.adv/",
+};
+
+export const PHONES = [
+  { label: "(82) 99133-2000", city: "Penedo" },
+  { label: "(79) 98815-9595", city: "Propriá" },
+];
+
+export const OFFICES = [
+  {
+    region: "Escritório Alagoas",
+    city: "Penedo/AL",
+    address: "Av. Getúlio Vargas, 259, Penedo/AL",
+    mapsUrl: "https://maps.app.goo.gl/rDQ9M6P3wDcQLMEJ6",
+    embedQuery: "Av. Getúlio Vargas, 259, Penedo - AL",
+  },
+  {
+    region: "Escritório Sergipe",
+    city: "Propriá/SE",
+    address: "Rua Santo Amaro, 680, Propriá/SE",
+    mapsUrl: "https://maps.app.goo.gl/h5vckKFQfZZTkDvy6",
+    embedQuery: "Rua Santo Amaro, 680, Propriá - SE",
+  },
+];

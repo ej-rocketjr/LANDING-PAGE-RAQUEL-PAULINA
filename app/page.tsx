@@ -1,25 +1,25 @@
-import Header from "./components/Header";
 import Hero from "./components/Hero";
-import Services from "./components/Services";
-import About from "./components/About";
+import AreasStrip from "./components/AreasStrip";
 import Differentials from "./components/Differentials";
+import PracticeAreas from "./components/PracticeAreas";
 import Reviews from "./components/Reviews";
-import CtaBanner from "./components/CtaBanner";
-import Faq from "./components/Faq";
+import About from "./components/About";
+import Steps from "./components/Steps";
+import Specialist from "./components/Specialist";
 import SiteFooter from "./components/SiteFooter";
 
 export default function Home() {
   return (
     <>
-      <Header />
-      <main className="flex-1">
+      <main>
         <Hero />
-        <Services />
-        <About />
+        <AreasStrip />
         <Differentials />
+        <PracticeAreas />
         <Reviews />
-        <CtaBanner />
-        <Faq />
+        <About />
+        <Steps />
+        <Specialist />
       </main>
       <SiteFooter />
     </>

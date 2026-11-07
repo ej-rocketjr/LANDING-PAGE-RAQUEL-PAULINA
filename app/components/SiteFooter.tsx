@@ -1,131 +1,98 @@
 import Image from "next/image";
+import { Icon } from "./Icons";
+import { EMAIL, INSTAGRAM, OAB, OFFICES, PHONES } from "./constants";
 
-const areas = [
-  "Aposentadorias",
-  "Benefícios por Incapacidade",
-  "Revisões de Benefício",
-  "BPC-LOAS",
-  "Servidores Públicos",
-  "Pensões e Auxílios",
-];
-
-const phones = ["(79) 9604-4009", "(82) 9132-2000", "(79) 8815-9595", "(82) 8775-5904"];
-const email = "raquelpaulinaadv@gmail.com";
-
-const offices = [
-  { region: "Alagoas", address: "Av. Getúlio Vargas, 259 Penedo / AL" },
-  { region: "Sergipe", address: "Rua Santo Amaro, 680 Propria / SE" },
-];
+// Mapa embutido do escritório principal (Penedo). Não precisa de chave de API.
+const MAP_EMBED = `https://www.google.com/maps?q=${encodeURIComponent(OFFICES[0].embedQuery)}&output=embed`;
 
 export default function SiteFooter() {
   return (
-    <footer className="bg-ink pb-8 pt-8 text-white flex flex-col">
-      <div className="mx-auto max-w-[1152px] px-6">
-        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
-          {/* Brand */}
-          <div className="max-w-[336px]">
+    <>
+      <div className="bar" />
+      <footer className="foot">
+        <svg className="notch-top" viewBox="0 0 52 26" aria-hidden="true">
+          <path d="M0 0h52L26 26Z" fill="currentColor" />
+        </svg>
+
+        <div className="wrap cols">
           <Image
-            src="/assets/logo.svg"
-            alt="Raquel Paulina — Advocacia Previdenciária"
-            width={66}
-            height={42}
-            className="h-25 w-auto"
+            className="flogo"
+            src="/assets/Logotipo-Raquel.svg"
+            alt="Raquel Paulina Advogada"
+            width={285}
+            height={170}
           />
-          </div>
 
-          {/* Áreas */}
           <div>
-            <h3 className="font-mono text-[11px] uppercase tracking-[0.1em] text-gold-muted">
-              Áreas
-            </h3>
-            <ul className="mt-5 flex flex-col gap-2">
-              {areas.map((a) => (
-                <li key={a} className="font-sans text-sm text-white">
-                  {a}
+            <h2>Contatos:</h2>
+            <ul>
+              {PHONES.map((p) => (
+                <li key={p.label}>
+                  <Icon name="wa" />
+                  {p.label} · {p.city}
                 </li>
               ))}
-            </ul>
-          </div>
-
-          {/* Contato */}
-          <div>
-            <h3 className="font-sans text-[11px] font-medium uppercase tracking-[0.1em] text-gold-muted">
-              Contato
-            </h3>
-            <ul className="mt-5 flex flex-col gap-4">
-              {phones.map((p) => (
-                <li key={p} className="flex items-center gap-2">
-                  <Image
-                    src="/assets/footerPhone.svg"
-                    alt=""
-                    aria-hidden
-                    width={15}
-                    height={15}
-                    className="size-[15px]"
-                  />
-                  <span className="font-sans text-xs text-white">{p}</span>
-                </li>
-              ))}
-              <li className="flex items-center gap-2">
-                <Image
-                  src="/assets/footerMail.svg"
-                  alt=""
-                  aria-hidden
-                  width={15}
-                  height={15}
-                  className="size-[15px]"
-                />
-                <a
-                  href={`mailto:${email}`}
-                  className="font-sans text-xs text-white hover:text-gold"
-                >
-                  {email}
+              <li>
+                <Icon name="ig" />
+                <a href={INSTAGRAM.url} target="_blank" rel="noopener noreferrer">
+                  {INSTAGRAM.handle}
                 </a>
+              </li>
+              <li>
+                <Icon name="mail" />
+                <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
+              </li>
+              {OFFICES.map((o, i) => (
+                <li key={o.region} className={i === 0 ? "gap" : undefined}>
+                  <Icon name="pin-o" />
+                  {o.region}: {o.address}
+                </li>
+              ))}
+              <li className="gap">
+                <Icon name="shield" />
+                {OAB}
               </li>
             </ul>
           </div>
 
-          {/* Escritórios */}
-          <div className="flex gap-3">
-            <Image
-              src="/assets/footerLoc.svg"
-              alt=""
-              aria-hidden
-              width={15}
-              height={15}
-              className="mt-1 size-[15px] shrink-0"
-            />
-            <div>
-              <h3 className="font-sans text-[10px] uppercase tracking-[0.2em] text-white">
-                Escritórios
-              </h3>
-              <div className="mt-4 flex flex-col gap-4">
-                {offices.map((o) => (
-                  <div key={o.region}>
-                    <p className="font-sans text-xs font-bold uppercase tracking-wide text-white">
-                      {o.region}
-                    </p>
-                    <p className="mt-0.5 font-sans text-xs leading-relaxed text-white">
-                      {o.address}
-                    </p>
-                  </div>
+          <div className="where">
+            <h2>Onde nos encontrar:</h2>
+            <div className="mapbox">
+              <iframe
+                src={MAP_EMBED}
+                title={`Mapa do ${OFFICES[0].region}`}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+              <div className="links">
+                {OFFICES.map((o) => (
+                  <a key={o.city} href={o.mapsUrl} target="_blank" rel="noopener noreferrer">
+                    {o.city} no Maps <Icon name="ext" />
+                  </a>
                 ))}
               </div>
             </div>
           </div>
         </div>
 
-        {/* Bottom bar */}
-        <div className="mt-10 flex flex-col items-center gap-3 border-t border-[rgba(201,168,76,0.15)] pt-8 text-center">
-          <p className="font-mono text-[10px] tracking-[0.1em] text-[rgba(240,234,216,0.25)]">
-            © 2026 Raquel Pauline Advocacia · OAB/CE 00.000
-          </p>
-          <p className="max-w-sm font-body text-[11px] leading-relaxed text-[rgba(240,234,216,0.2)]">
-            Conteúdo informativo. Não constitui oferta de serviços. OAB
-            Provimento nº 205/2021.
-          </p>
+        <div className="wrap bottom">
+          <hr />
+          <div className="copy">
+            <p>
+              Copyright {new Date().getFullYear()}. Todos os direitos reservados a{" "}
+              <a href="https://rocketjr.com.br/" target="_blank" rel="noopener">
+                Rocket Jr
+              </a>
+              .
+            </p>
+            <small>Raquel Paulina Advocacia · {OAB}</small>
+          </div>
+          <hr />
         </div>
-      </div>
-    </footer>
+      </footer>
+      <a className="totop" href="#inicio" aria-label="Voltar ao topo">
+        <Icon name="up" />
+      </a>
+    </>
   );
 }
